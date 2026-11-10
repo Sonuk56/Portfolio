@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme {
+  --color-charcoal: #1E1E1C;
+  --color-charcoal-light: #2A2A28;
+  --color-charcoal-dark: #141412;
+  --color-charcoal-glass: rgba(30, 30, 28, 0.6);
+  --color-charcoal-glass-heavy: rgba(30, 30, 28, 0.85);
+  --color-sand: #D6CBB2;
+  --color-sand-light: #E8DFD0;
+  --color-sand-dark: #C4B89E;
+  --color-sand-muted: rgba(214, 203, 178, 0.15);
+  --color-sand-border: rgba(214, 203, 178, 0.1);
+  --color-electric: #2E6BFF;
+  --color-electric-hover: #4A7FFF;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(214, 203, 178, 0.2) transparent;
+}
+
+body {
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(46, 107, 255, 0.3);
+  color: #D6CBB2;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(214, 203, 178, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(214, 203, 178, 0.35);
+}
+
+/* Glass utility classes */
+.glass {
+  background: rgba(30, 30, 28, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(214, 203, 178, 0.08);
+}
+
+.glass-heavy {
+  background: rgba(30, 30, 28, 0.85);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(214, 203, 178, 0.1);
+}
+
+.glass-card {
+  background: rgba(42, 42, 40, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(214, 203, 178, 0.06);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  background: rgba(42, 42, 40, 0.7);
+  border-color: rgba(214, 203, 178, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Heading font */
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-heading);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Loading screen */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1E1E1C;
+}
+
+/* Custom cursor */
+.custom-cursor {
+  pointer-events: none;
+  position: fixed;
+  z-index: 9998;
+  mix-blend-mode: difference;
+}
+
+/* Particle canvas */
+.particle-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
